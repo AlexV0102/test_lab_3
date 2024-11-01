@@ -126,14 +126,14 @@ namespace SpecFlowRestApi.Steps
         {
             var booking = new
             {
-                firstname = "Jim",
-                lastname = "Brown",
+                firstname = "Dmytro",
+                lastname = "Dmytrovich",
                 totalprice = 111,
                 depositpaid = true,
                 bookingdates = new
                 {
-                    checkin = "2018-01-01",
-                    checkout = "2019-01-01"
+                    checkin = "2020-01-01",
+                    checkout = "2021-01-01"
                 },
                 additionalneeds = "Breakfast"
             };
@@ -143,12 +143,12 @@ namespace SpecFlowRestApi.Steps
         public void ThenResponseContainsJsonWithBooking()
         {
             var jsonResponse = JObject.Parse(response.Content);
-            Assert.AreEqual("Jim", (string)jsonResponse["firstname"]);
-            Assert.AreEqual("Brown", (string)jsonResponse["lastname"]);
+            Assert.AreEqual("Dmytro", (string)jsonResponse["firstname"]);
+            Assert.AreEqual("Dmytrovich", (string)jsonResponse["lastname"]);
             Assert.AreEqual(111, (int)jsonResponse["totalprice"]);
             Assert.IsTrue((bool)jsonResponse["depositpaid"]);
-            Assert.AreEqual("2018-01-01", (string)jsonResponse["bookingdates"]["checkin"]);
-            Assert.AreEqual("2019-01-01", (string)jsonResponse["bookingdates"]["checkout"]);
+            Assert.AreEqual("2020-01-01", (string)jsonResponse["bookingdates"]["checkin"]);
+            Assert.AreEqual("2021-01-01", (string)jsonResponse["bookingdates"]["checkout"]);
             Assert.AreEqual("Breakfast", (string)jsonResponse["additionalneeds"]);
         }
 
@@ -160,12 +160,12 @@ namespace SpecFlowRestApi.Steps
             Assert.IsTrue(jsonResponse.ContainsKey("bookingid"), "Response does not contain booking ID");
 
             var booking = jsonResponse["booking"];
-            Assert.AreEqual("Jim", (string)booking["firstname"]);
-            Assert.AreEqual("Brown", (string)booking["lastname"]);
+            Assert.AreEqual("Dmytro", (string)booking["firstname"]);
+            Assert.AreEqual("Dmytrovich", (string)booking["lastname"]);
             Assert.AreEqual(111, (int)booking["totalprice"]);
             Assert.IsTrue((bool)booking["depositpaid"]);
-            Assert.AreEqual("2018-01-01", (string)booking["bookingdates"]["checkin"]);
-            Assert.AreEqual("2019-01-01", (string)booking["bookingdates"]["checkout"]);
+            Assert.AreEqual("2020-01-01", (string)booking["bookingdates"]["checkin"]);
+            Assert.AreEqual("2021-01-01", (string)booking["bookingdates"]["checkout"]);
             Assert.AreEqual("Breakfast", (string)booking["additionalneeds"]);
         }
 
